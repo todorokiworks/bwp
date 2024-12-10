@@ -1,0 +1,157 @@
+---
+const lists = [
+    {
+        num: "01",
+        ttl: "酸化チタン",
+        txt: `優れた光反射で歯に輝きと<br>透明感をプラス。`,
+    },
+    {
+        num: "02",
+        ttl: "酸化タングステン",
+        txt: `歯の色ムラを抑え、より均一な<br>白さを実現。`,
+    },
+    {
+        num: "03",
+        ttl: "真珠パウダー",
+        txt: `光沢効果で歯に自然なツヤを与え、<br>理想的な白さをサポート。`,
+    },
+];
+---
+
+<section id="ingredients">
+    <div class="cInner">
+        <h2>こだわりの<span>3</span>つの成分</h2>
+        <div class="list">
+            {
+                lists.map((item) => (
+                    <div class="item">
+                        <p set:text={item.num} class="num" />
+                        <p set:text={item.ttl} class="ttl" />
+                        <p set:html={item.txt} class="txt" />
+                    </div>
+                ))
+            }
+        </div>
+        <div class="effect">
+            <dl>
+                <dt>歯垢とステインの形成抑制</dt>
+                <dd>
+                    弱アルカリ性が酸を中和し、<br />
+                    歯垢やステインの再付着を防ぎます。
+                </dd>
+            </dl>
+            <dl>
+                <dt>口腔内の健康維持</dt>
+                <dd>
+                    歯垢やミネラルの沈着を防ぎ、<br />
+                    虫歯や歯周病のリスク低減に貢献します。
+                </dd>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#ingredients {
+        div.cInner {
+            padding: 80px 0;
+            h2 {
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+                margin: 0 auto 80px;
+                text-align: center;
+                span {
+                    display: inline-block;
+                    font-size: 60px;
+                }
+            }
+            div.list {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 160px;
+                div.item {
+                    width: 30%;
+                    border: 4px solid var(--darkBlue);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    border-radius: 15px;
+                    padding: 30px;
+                    min-height: 380px;
+                    box-shadow: 6px 6px 0 var(--darkBlue);
+                    p.num {
+                        font-size: 36px;
+                        font-weight: bold;
+                    }
+                    p.ttl {
+                        font-size: 28px;
+                        font-weight: bold;
+                        margin-bottom: 40px;
+                    }
+                    p.txt {
+                        font-size: 20px;
+                    }
+                }
+            }
+            div.effect {
+                width: 800px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 40px 60px;
+                border-radius: 15px;
+                border: 5px solid var(--darkBlue);
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 240px;
+                    height: 53px;
+                    z-index: 1;
+                    background: url("/img/icon_triangle.png") center center /
+                        contain no-repeat;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -42px;
+                    right: 20px;
+                    width: 120px;
+                    height: 240px;
+                    z-index: 1;
+                    background: url("/img/img_ingridients_man.png") center
+                        center / contain no-repeat;
+                }
+                dl {
+                    display: flex;
+                    font-size: 18px;
+                    font-weight: bold;
+                    &:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
+                    dt {
+                        min-width: 250px;
+                        position: relative;
+                        &::after {
+                            content: "▶︎";
+                            position: absolute;
+                            top: 8%;
+                            right: 10px;
+                            font-size: 16px;
+                        }
+                    }
+                    dd {
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,107 @@
+---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+---
+
+<section id="mv">
+    <div class="inner">
+        <div class="headerTxt">
+            <h1>
+                {
+                    t({
+                        ja: "輝く白い歯を",
+                        en: "With a professional whitening ",
+                    })
+                }
+                <br />
+                {
+                    t({
+                        ja: "歯科医院専用",
+                        en: "powder for dental clinics,",
+                    })
+                }
+                <br />
+                {
+                    t({
+                        ja: " ホワイトニングパウダーで",
+                        en: "achieve radiant white teeth",
+                    })
+                }
+                <br />
+            </h1>
+            <p>
+                {
+                    t({
+                        ja: "酸化チタン・酸化タングステン・真珠パウダー配合。",
+                        en: "Formulated with titanium oxide, tungsten oxide, and pearl powder.",
+                    })
+                }
+                <br />
+                {
+                    t({
+                        ja: "日本国内製造で安心の品質をお届けします",
+                        en: "Proudly made in Japan, offering you reliable quality and peace of mind.",
+                    })
+                }
+            </p>
+            <a
+                href="https://cocoashiya18.thebase.in/p/00002"
+                target="_blank"
+                class="btn"
+            >
+                {
+                    t({
+                        ja: "ご購入",
+                        en: "Purchase",
+                    })
+                }
+            </a>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#mv {
+        background: url("/img/mv_bg.png") center center / cover no-repeat;
+        width: 100%;
+        height: 900px;
+        div.inner {
+            position: relative;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            div.headerTxt {
+                position: absolute;
+                top: 50%;
+                left: 0%;
+                transform: translateY(-50%);
+                h1 {
+                    font-size: 56px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                    line-height: 1.25;
+                    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.3);
+                    span {
+                        font-size: 46px;
+                    }
+                }
+                p {
+                    font-size: 24px;
+                    margin-bottom: 40px;
+                }
+                a.btn {
+                    width: 400px;
+                    padding: 20px 0;
+                }
+            }
+        }
+    }
+</style>

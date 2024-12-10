@@ -1,0 +1,70 @@
+<section id="voice">
+    <div class="cInner">
+        <h2>お客様の声</h2>
+        <div class="list">
+            <div class="item">
+                <div class="icon">
+                    <img src="/img/img_voice_woman.png" alt="" />
+                </div>
+                <div class="txt">このパウダーで本当に白くなりました!</div>
+            </div>
+            <div class="item">
+                <div class="txt">使い始めてから自分に自信がつきました!!</div>
+                <div class="icon">
+                    <img src="/img/img_voice_man.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#voice {
+        background: url("/img/img_voice_bg.png") center center / cover;
+        div.cInner {
+            padding: 80px 0;
+            position: relative;
+            h2 {
+                font-size: 60px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+                text-align: center;
+            }
+            div.list {
+                width: 800px;
+                margin: 0 auto;
+                div.item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    div.icon {
+                        width: 180px;
+                        img {
+                        }
+                    }
+                    div.txt {
+                        background: url("/img/img_voice_frame.png") center
+                            center / contain no-repeat;
+                        width: 800px;
+                        height: 220px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+
+                    &:nth-child(1) {
+                        .txt {
+                            background: url("/img/img_voice_frame02.png") center
+                                center / contain no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

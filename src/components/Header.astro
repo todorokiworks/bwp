@@ -1,6 +1,4 @@
 ---
-// Header & Navigation UI displayed on each page.
-
 import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
 import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "@/i18n";
@@ -12,174 +10,91 @@ import AstroImage from "@/assets/astro-logo.svg";
 const locale = Astro.currentLocale as Lang;
 
 const isActive = (path: string) =>
-  getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+
+const nav = [
+    {
+        name: "特徴",
+        link: "#feature",
+    },
+    {
+        name: "成分",
+        link: "#ingredients",
+    },
+    {
+        name: "こだわり",
+        link: "#domestic",
+    },
+    {
+        name: "使用方法",
+        link: "#use",
+    },
+    {
+        name: "お客様の声",
+        link: "#voice",
+    },
+];
 ---
 
-<header class="l-header">
-  <h1 dir="ltr">
-    <a href={getRelativeLocaleUrl(locale, "/")}>
-      <Image src={AstroImage} alt="Astro" />
-      i18n Starter
-    </a>
-  </h1>
-
-  <LocaleSelect />
-
-  <nav class="l-content">
-    <ul>
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/setup")}
-          class={isActive("/setup") ? "active" : null}
+<header id="header">
+    <div class="cInner">
+        <a href="/" class="logo"
+            ><img src="/img/img_logo.png" alt="beauty white powder" /></a
         >
-          {t({ ja: "設定", en: "Setup", "zh-cn": "设置", ar: "إعداد" })}
-        </a>
-      </li>
+        <nav>
+            <ul>
+                {
+                    nav.map((el) => (
+                        <li>
+                            <a href={el.link}>{el.name}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
 
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/page")}
-          class={isActive("/page") ? "active" : null}
-        >
-          {
-            t({
-              ja: "ページの追加",
-              en: "Add Page",
-              "zh-cn": "添加页面",
-              ar: "إضافة صفحة",
-            })
-          }
-        </a>
-      </li>
-
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/feature")}
-          class={isActive("/feature") ? "active" : null}
-        >
-          {
-            t({
-              ja: "その他の機能",
-              en: "Features",
-              "zh-cn": "特性",
-              ar: "الميزات",
-            })
-          }
-        </a>
-      </li>
-
-      <li class="en-only">
-        <a
-          href={getRelativeLocaleUrl(locale, "/monolingual")}
-          class={isActive("/monolingual") ? "active" : null}
-        >
-          Monolingual
-        </a>
-      </li>
-
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/blog")}
-          class={isActive("/blog") ? "active" : null}
-        >
-          {t({ ja: "ブログ", en: "Blog", "zh-cn": "博客", ar: "مدونة" })}
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://github.com/psephopaiktes/astro-i18n-starter"
-          target="_blank"
-        >
-          GitHub
-          <span class="material-icons-sharp dir">open_in_new</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+        <LocaleSelect />
+        <!--<a
+            href="https://cocoashiya18.thebase.in/p/00002"
+            target="_blank"
+            class="btn">ご購入</a
+        > -->
+    </div>
 </header>
 
-<style>
-  * {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  header {
-    display: grid;
-    place-items: center;
-    gap: var(--sp-s);
-  }
-
-  h1 {
-    margin-block-start: var(--sp-l);
-    margin-inline-start: -0.5em;
-    font-size: 40px;
-    font-family: var(--english-font);
-    font-weight: 900;
-    @media (width < 480px) {
-      font-size: 28px;
+<style lang="scss">
+    header#header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        div.cInner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            max-width: 1300px;
+            a.logo {
+                img {
+                }
+            }
+            nav {
+                transform: translateX(50px);
+                ul {
+                    display: flex;
+                    gap: 30px;
+                    li {
+                        a {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            a.btn {
+                width: 230px;
+            }
+        }
     }
-
-    a {
-      display: flex;
-      align-items: center;
-    }
-    img {
-      width: 6em;
-      position: relative;
-      inset: 0.1em;
-    }
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-m);
-  }
-  ul {
-    display: flex;
-    gap: var(--sp-s);
-    margin-block-start: var(--sp-s);
-
-    .en-only {
-      position: relative;
-      &:not(:lang(en))::before {
-        content: "EN";
-        position: absolute;
-        inset: -0.4em -0.6em auto auto;
-        font-size: 0.8em;
-        font-weight: 900;
-        color: var(--color-main);
-        opacity: 0.6;
-      }
-    }
-
-    a {
-      font-size: 1.05rem;
-      display: block;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      padding-block: 0.2em;
-      padding-inline: 0.4em;
-      border-radius: 4px;
-      &:hover,
-      &:active {
-        background-color: color-mix(
-          in srgb,
-          var(--color-theme) 5%,
-          transparent
-        );
-      }
-      &.active {
-        pointer-events: none;
-        color: var(--color-theme);
-      }
-      .material-icons-sharp {
-        opacity: 0.6;
-        margin-inline-start: -0.2em;
-        font-size: 0.9em;
-      }
-    }
-  }
 </style>

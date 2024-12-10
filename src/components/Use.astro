@@ -1,0 +1,73 @@
+---
+
+---
+
+<section id="use">
+    <div class="cInner">
+        <h2>歯科医院の使用方法</h2>
+        <p>
+            歯科用薬剤に混ぜて使用可能<br
+            />白い薬剤になり歯に塗布しやすくなります
+        </p>
+        <div class="list">
+            <div class="item">
+                毎日の歯磨きに<br />プラスするだけで<br />OK!
+            </div>
+            <div class="item">
+                使い方は簡単、<br />いつもの歯磨きに<br />混ぜるだけ!
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#use {
+        background: #f7e701;
+        min-height: 650px;
+        div.cInner {
+            padding: 100px 0;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                transform: translateY(-50%);
+                width: 600px;
+                height: 435px;
+                z-index: 1;
+                background: url("/img/img_use_woman.png") center center /
+                    contain no-repeat;
+            }
+            h2 {
+                font-size: 60px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+            }
+            p {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+            div.list {
+                display: flex;
+                gap: 20px;
+                div.item {
+                    background: url("/img/img_use_frame.png") center center /
+                        contain no-repeat;
+                    width: 265px;
+                    height: 270px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 22px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+        }
+    }
+</style>

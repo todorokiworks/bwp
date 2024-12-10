@@ -25,6 +25,8 @@ const {
 const locale = Astro.currentLocale as Lang;
 const localeTitle = title ? `${title} - ${t(SITE_TITLE)}` : t(SITE_TITLE);
 const localeDescription = description || t(SITE_DESCRIPTION);
+
+import "@fontsource-variable/noto-sans-jp";
 ---
 
 <!--
@@ -84,13 +86,50 @@ const localeDescription = description || t(SITE_DESCRIPTION);
   <body>
     <LocaleSuggest />
     <Header />
-
-    <main class="l-main l-content">
-      <slot />
-    </main>
-
+  <slot />
     <Footer />
 
     { import.meta.env.DEV && <style>:root { scroll-behavior: auto }</style> }
   </body>
 </html>
+
+<style is:global lang="scss">
+	:root {
+		--darkBlue: #18334b;
+	}
+	html {
+		font-family: "Noto Sans JP Variable", sans-serif;
+		color: var(--darkBlue);
+		scroll-behavior: smooth;
+	}
+
+	.cInner {
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+
+	.btn {
+		display: block;
+		background: var(--darkBlue);
+		color: #fff;
+		border-radius: 50px;
+		padding: 10px 0;
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.pc {
+		display: block;
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
+
+	.sp {
+		display: none;
+		@media (max-width: 767px) {
+			display: block;
+		}
+	}
+</style>

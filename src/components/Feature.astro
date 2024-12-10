@@ -1,0 +1,192 @@
+---
+const lists = [
+    {
+        ttl: "美白効果",
+        txt: `歯の表面に光を反射し、<br>一時的に歯を明るく見せる<br>光学効果。`,
+    },
+    {
+        ttl: "再石灰化促進",
+        txt: `歯のエナメル質に<br>自然な成分を再吸収させ、<br>微細な傷を修復。`,
+    },
+    {
+        ttl: "保護効果",
+        txt: `酸に強い保護層を形成し、<br>歯をしっかりガード。`,
+    },
+    {
+        ttl: "ステイン除去",
+        txt: `微粒子がコーヒーやワインなどに<br>よる着色汚れを物理的に除去し、<br>再付着を防ぐ。`,
+    },
+];
+---
+
+<section id="feature">
+    <div class="cInner">
+        <h2>
+            Beauty White Powder
+            <span>の特長と効果</span>
+        </h2>
+        <div class="list">
+            {
+                lists.map((item) => (
+                    <div class="item">
+                        <div class="item-ttl" set:text={item.ttl} />
+                        <div class="item-txt" set:html={item.txt} />
+                    </div>
+                ))
+            }
+        </div>
+        <div class="recommend">
+            <p>こんな方にオススメです</p>
+            <div class="recommend__inner">
+                <ul>
+                    <li>コーヒー・紅茶等による歯の着色が気になる方</li>
+                    <li>歯の白さを持続したい方</li>
+                    <li>口の臭いが気になる方</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#feature {
+        background: url("/img/img_feature_bg.png") center center / cover;
+        div.cInner {
+            padding: 60px 0;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 80px;
+                right: -80px;
+                width: 700px;
+                height: 600px;
+                z-index: 1;
+                background: url("/img/img_feature_bg-item.png") center center /
+                    cover no-repeat;
+            }
+            h2 {
+                font-size: 60px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+                span {
+                    display: block;
+                    font-size: 36px;
+                }
+            }
+            div.list {
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                z-index: 9;
+                margin-bottom: 100px;
+                position: relative;
+
+                div.item {
+                    width: 48%;
+                    text-align: center;
+                    min-height: 250px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    position: relative;
+                    z-index: 9;
+                    margin-bottom: 20px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -20px;
+                        left: 0;
+                        width: 300px;
+                        height: 300px;
+                        z-index: -1;
+                    }
+                    &:nth-child(1) {
+                        &::before {
+                            background: url("/img/img_feature_blob01.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(2) {
+                        &::before {
+                            background: url("/img/img_feature_blob02.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(3) {
+                        &::before {
+                            background: url("/img/img_feature_blob03.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(4) {
+                        &::before {
+                            background: url("/img/img_feature_blob04.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    div.item-ttl {
+                        font-size: 24px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+                    div.item-txt {
+                    }
+                }
+            }
+            div.recommend {
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -80px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 240px;
+                    height: 53px;
+                    z-index: 1;
+                    background: url("/img/icon_triangle.png") center center /
+                        contain no-repeat;
+                }
+                p {
+                    text-align: center;
+                    font-size: 36px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+                div.recommend__inner {
+                    width: 800px;
+                    margin: 0 auto;
+                    background: #fff;
+                    padding: 40px 60px;
+                    border-radius: 25px;
+                    border: 6px solid var(--darkBlue);
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: -67px;
+                        right: 20px;
+                        width: 240px;
+                        height: 280px;
+                        z-index: 1;
+                        background: url("/img/img_feature_woman.png") center
+                            center / contain no-repeat;
+                    }
+                    ul {
+                        li {
+                            font-size: 22px;
+                            font-weight: bold;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

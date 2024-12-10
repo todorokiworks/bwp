@@ -1,0 +1,76 @@
+---
+const lists = [
+    {
+        url: "/img/img_domestic01.png",
+        ttl: "信頼の品質",
+        txt: `原料から製造まで日本国内で徹底管理。<br>安全で高品質な製品をお届けします。`,
+    },
+    {
+        url: "/img/img_domestic02.png",
+        ttl: "日本製の安心感",
+        txt: `成分・容器・製造まで国産で、日本の技術力<br>と信頼性に支えられた製品。`,
+    },
+];
+---
+
+<section id="domestic">
+    <div class="cInner">
+        <h2><span>日本国内製造</span>へのこだわり</h2>
+        <div class="list">
+            {
+                lists.map((item) => (
+                    <div class="item">
+                        <div>
+                            <img src={item.url} alt="" />
+                        </div>
+                        <p set:text={item.ttl} class="ttl" />
+                        <p set:html={item.txt} class="txt" />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#domestic {
+        div.cInner {
+            padding: 80px 0;
+            h2 {
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+                margin: 0 auto 80px;
+                text-align: center;
+                span {
+                    display: inline-block;
+                    font-size: 60px;
+                }
+            }
+            div.list {
+                display: flex;
+                justify-content: space-between;
+                div.item {
+                    width: 46%;
+                    div {
+                        margin-bottom: 20px;
+                        img {
+                        }
+                    }
+                    p.ttl {
+                        text-align: center;
+                        font-size: 28px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+                    p.txt {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+</style>
