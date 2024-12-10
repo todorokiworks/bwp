@@ -36,3 +36,4 @@ This theme is self-documented, and the pages within this theme can be considered
 Install and preview locally or check out the sample site below.
 
 https://astro-i18n-starter.pages.dev/
+# bwp
