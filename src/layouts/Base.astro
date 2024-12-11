@@ -173,6 +173,59 @@ import "@fontsource-variable/noto-sans-jp";
                 }
             }
 
+            div.list {
+               div.item {
+                 &::before {
+                        content: "";
+                        position: absolute;
+                        top: -20px;
+                        left: 0;
+                        width: 300px;
+                        height: 300px;
+                        z-index: -1;
+                        @media (max-width: 767px) {
+                            width: 200px;
+                            height: 200px;
+                            left: -20px;
+                        }
+                    }
+                &:nth-child(1) {
+                        &::before {
+                            background: url("/img/img_feature_blob01.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(2) {
+                        @media (max-width: 767px) {
+                            margin-left: auto;
+                        }
+                        &::before {
+                            background: url("/img/img_feature_blob02.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(3) {
+                        @media (max-width: 767px) {
+                            transform: translateY(-58px);
+                        }
+                        &::before {
+                            background: url("/img/img_feature_blob03.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+                    &:nth-child(4) {
+                        @media (max-width: 767px) {
+                            margin-left: auto;
+                            transform: translateY(-125px);
+                        }
+                        &::before {
+                            background: url("/img/img_feature_blob04.png")
+                                center center / contain no-repeat;
+                        }
+                    }
+               }
+            }
+
             div.recommend {
               div.recommend__inner {
                 position: relative;
