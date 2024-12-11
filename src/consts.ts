@@ -3,11 +3,11 @@
 
 import { type Multilingual } from "@/i18n";
 
-export const SITE_TITLE: string | Multilingual = "Beauty White Powder";
+export const SITE_TITLE: string | Multilingual = "Beauty White Powder | 歯科医院専用ホワイトニングパウダー BY COCO ASHIYA";
 
 export const SITE_DESCRIPTION: string | Multilingual = {
   en: "professional whitening powder for dental clinics",
-  ja: "歯科医院専用ホワイトニングパウダー",
+  ja: "COCO ASHIYAが販売する歯科医院専用ホワイトニングパウダーです。",
 
 };
 

@@ -21,6 +21,7 @@ import Use from "@/components/Use.astro";
 import Voice from "@/components/Voice.astro";
 import Purchase from "@/components/Purchase.astro";
 import Footer from "@/components/Footer.astro";
+import Contact from "@/components/Contact.astro";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -40,5 +41,6 @@ export const getStaticPaths = () =>
   <Use />
   <Voice />
   <Purchase />
+  <Contact />
   <Slider />
 </Layout>
