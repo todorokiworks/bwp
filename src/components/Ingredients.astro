@@ -1,4 +1,15 @@
 ---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+
 const lists = [
     {
         num: "01",
@@ -20,38 +31,146 @@ const lists = [
 
 <section id="ingredients">
     <div class="cInner">
-        <h2>こだわりの<span>3</span>つの成分</h2>
-        <div class="list">
+        <h2>
             {
-                lists.map((item) => (
-                    <div class="item">
-                        <p set:text={item.num} class="num" />
-                        <p set:text={item.ttl} class="ttl" />
-                        <p set:html={item.txt} class="txt" />
-                    </div>
-                ))
+                t({
+                    ja: "こだわりの",
+                    en: "",
+                })
             }
+            <span>
+                {
+                    t({
+                        ja: "",
+                        en: "3",
+                    })
+                }
+            </span>
+            <span>
+                {
+                    t({
+                        ja: "3",
+                        en: "",
+                    })
+                }
+            </span>
+            {
+                t({
+                    ja: "つの成分",
+                    en: "key Ingredients",
+                })
+            }
+        </h2>
+        <div class="list">
+            <div class="item">
+                <p class="num">01</p>
+                <p class="ttl">
+                    {
+                        t({
+                            ja: "歯垢とステインの形成抑制",
+                            en: "Titanium Oxide",
+                        })
+                    }
+                </p>
+                <p class="txt">
+                    {
+                        t({
+                            ja: "歯垢とステインの形成抑制",
+                            en: "Provides exceptional light reflection, enhancing the brightness and transparency of teeth for a radiant smile.",
+                        })
+                    }
+                </p>
+            </div>
+            <div class="item">
+                <p class="num">02</p>
+                <p class="ttl">
+                    {
+                        t({
+                            ja: "酸化タングステン",
+                            en: "Tungsten Oxide",
+                        })
+                    }
+                </p>
+                <p class="txt">
+                    {
+                        t({
+                            ja: "歯の色ムラを抑え、より均一な白さを実現。",
+                            en: "Reduces uneven tooth coloration, achieving a more uniform and natural whiteness.",
+                        })
+                    }
+                </p>
+            </div>
+            <div class="item">
+                <p class="num">03</p>
+                <p class="ttl">
+                    {
+                        t({
+                            ja: "真珠パウダー",
+                            en: "Pearl Powder",
+                        })
+                    }
+                </p>
+                <p class="txt">
+                    {
+                        t({
+                            ja: "光沢効果で歯に自然なツヤを与え、理想的な白さをサポート。",
+                            en: "Adds a glossy effect, giving teeth a natural shine and supporting an ideal white appearance.",
+                        })
+                    }
+                </p>
+            </div>
         </div>
         <div class="effect">
             <dl>
-                <dt>歯垢とステインの形成抑制</dt>
+                <dt>
+                    {
+                        t({
+                            ja: "歯垢とステインの形成抑制",
+                            en: "Prevention of Plaque and",
+                        })
+                    }<br>
+                     {
+                        t({
+                            ja: "",
+                            en: "Stain Formation ",
+                        })
+                    }
+                </dt>
                 <dd>
-                    弱アルカリ性が酸を中和し、<br />
-                    歯垢やステインの再付着を防ぎます。
+                    {
+                        t({
+                            ja: "弱アルカリ性が酸を中和し、歯垢やステインの再付着を防ぎます。",
+                            en: "The mild alkalinity neutralizes acids in the mouth, helping to prevent the buildup of plaque and the reattachment of stains.",
+                        })
+                    }
+                    <br />
                 </dd>
             </dl>
             <dl>
-                <dt>口腔内の健康維持</dt>
+                <dt>
+                    {
+                        t({
+                            ja: "口腔内の健康維持",
+                            en: "Oral Health Maintenance",
+                        })
+                    }
+                </dt>
                 <dd>
-                    歯垢やミネラルの沈着を防ぎ、<br />
-                    虫歯や歯周病のリスク低減に貢献します。
+                    {
+                        t({
+                            ja: " 歯垢やミネラルの沈着を防ぎ、虫歯や歯周病のリスク低減に貢献します。",
+                            en: "Inhibits plaque formation and mineral deposits, reducing the risk of cavities and periodontal disease while promoting overall oral hygiene.",
+                        })
+                    }
                 </dd>
             </dl>
         </div>
     </div>
 </section>
 
-<style lang="scss">
+{
+    locale === "ja" ? (
+      <style lang="scss">
     section#ingredients {
         div.cInner {
             padding: 80px 0;
@@ -99,7 +218,7 @@ const lists = [
                 }
             }
             div.effect {
-                width: 800px;
+                width: 900px;
                 margin: 0 auto;
                 background: #fff;
                 padding: 40px 60px;
@@ -145,6 +264,101 @@ const lists = [
                             position: absolute;
                             top: 8%;
                             right: 10px;
+                            font-size: 18px;
+                        }
+                    }
+                    dd {
+                    }
+                }
+            }
+        }
+    }
+</style>
+    ) : locale === "en" ? (
+     <style lang="scss">
+    section#ingredients {
+        div.cInner {
+            padding: 80px 0;
+            h2 {
+                font-size: 50px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 9;
+                margin: 0 auto 80px;
+                text-align: center;
+                span {
+                    display: inline-block;
+                    font-size: 60px;
+                }
+            }
+            div.list {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 160px;
+                div.item {
+                    width: 30%;
+                    border: 4px solid var(--darkBlue);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    border-radius: 15px;
+                    padding: 30px;
+                    min-height: 380px;
+                    box-shadow: 6px 6px 0 var(--darkBlue);
+                    p.num {
+                        font-size: 36px;
+                        font-weight: bold;
+                    }
+                    p.ttl {
+                        font-size: 28px;
+                        font-weight: bold;
+                        margin-bottom: 40px;
+                    }
+                    p.txt {
+                        font-size: 20px;
+                    }
+                }
+            }
+            div.effect {
+                width: 900px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 40px 60px;
+                border-radius: 15px;
+                border: 5px solid var(--darkBlue);
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 240px;
+                    height: 53px;
+                    z-index: 1;
+                    background: url("/img/icon_triangle.png") center center /
+                        contain no-repeat;
+                }
+              
+                dl {
+                    display: flex;
+                    font-size: 16px;
+                    font-weight: bold;
+                    &:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
+                    dt {
+                        min-width: 250px;
+                        position: relative;
+                        &::after {
+                            content: "▶︎";
+                            position: absolute;
+                            top: 8%;
+                            right: 10px;
                             font-size: 16px;
                         }
                     }
@@ -155,3 +369,6 @@ const lists = [
         }
     }
 </style>
+    ) : null
+}
+

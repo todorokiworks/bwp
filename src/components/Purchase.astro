@@ -1,35 +1,168 @@
+---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+---
+
 <section id="purchase">
     <div class="contents">
         <div class="image">
             <img src="/img/product_purchese.jpg" alt="" />
         </div>
         <div class="info">
-            <h2>製品情報と購入情報</h2>
+            <h2>
+                {
+                    t({
+                        ja: "製品情報と購入情報!",
+                        en: "Information",
+                    })
+                }
+            </h2>
             <p>
-                プロの現場でも使用される品質：歯科医院での使用を想定し、<br />
-                専門家も信頼するホワイトニングパウダーです
+                {
+                    t({
+                        ja: "プロの現場でも使用される品質：歯科医院での使用を想定し、",
+                        en: "Quality used in professional settings: Designed for ",
+                    })
+                }<br />
+                {
+                    t({
+                        ja: "専門家も信頼するホワイトニングパウダーです!",
+                        en: "use in dental clinics, a whitening powder trusted by experts",
+                    })
+                }
             </p>
             <ul class="info-list">
                 <li>
-                    <span>商品名</span>ビューティホワイトパウダー（20g）
+                    <span>
+                        {
+                            t({
+                                ja: "商品名",
+                                en: "Product name",
+                            })
+                        }
+                    </span>
+                    {
+                        t({
+                            ja: "ビューティホワイトパウダー（20g）",
+                            en: "Beauty white powder (20g)",
+                        })
+                    }
                 </li>
                 <li>
-                    <span>カテゴリー</span>口腔化粧品
+                    <span>
+                        {
+                            t({
+                                ja: "カテゴリー",
+                                en: "Category",
+                            })
+                        }
+                    </span>
+                    {
+                        t({
+                            ja: "口腔化粧品",
+                            en: "oral cosmetics",
+                        })
+                    }
                 </li>
                 <li>
-                    <span>販売価格</span>18,000円（税込）
+                    <span>
+                        {
+                            t({
+                                ja: "販売価格",
+                                en: "Price",
+                            })
+                        }
+                    </span>
+                    {
+                        t({
+                            ja: "18,000円（税込）",
+                            en: "¥18,000（Tax included）",
+                        })
+                    }
                 </li>
             </ul>
             <a
                 href="https://cocoashiya18.thebase.in/p/00002"
                 target="_blank"
-                class="btn">ご購入</a
+                class="btn"
             >
+                {
+                    t({
+                        ja: "ご購入",
+                        en: "Purchase",
+                    })
+                }
+            </a>
         </div>
     </div>
 </section>
 
-<style lang="scss">
+{
+    locale === "en" ? (
+     <style lang="scss">
+    section#purchase {
+        div.contents {
+            display: flex;
+            div.image {
+                width: 50%;
+                img {
+                }
+            }
+            div.info {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                h2 {
+                    font-size: 60px;
+                    font-weight: bold;
+                    line-height: 1.25;
+                    margin-bottom: 40px;
+                    position: relative;
+                    z-index: 9;
+                    text-align: center;
+                }
+                p {
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 40px;
+                }
+                ul.info-list {
+                    margin-bottom: 40px;
+                    li {
+                        font-size: 16px;
+                        border-bottom: 2px solid var(--darkBlue);
+                        margin-bottom: 10px;
+                        padding-bottom: 10px;
+                        span {
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-right: 40px;
+                            min-width: 130px;
+                            display: inline-block;
+                        }
+                    }
+                }
+                a.btn {
+                    width: 350px;
+                    padding: 20px 0;
+                }
+            }
+        }
+    }
+</style>
+    ) : locale === "ja" ? (
+      <style lang="scss">
     section#purchase {
         div.contents {
             display: flex;
@@ -83,3 +216,7 @@
         }
     }
 </style>
+    ) : null
+}
+
+

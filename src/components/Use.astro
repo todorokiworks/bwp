@@ -1,20 +1,103 @@
 ---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
 
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
 ---
 
 <section id="use">
     <div class="cInner">
-        <h2>歯科医院の使用方法</h2>
+        <h2>
+            {
+                t({
+                    ja: "歯科医院の使用方法",
+                    en: "Usage Instructions",
+                })
+            }<br />
+            {
+                t({
+                    ja: "",
+                    en: "for Dental Clinics",
+                })
+            }
+        </h2>
         <p>
-            歯科用薬剤に混ぜて使用可能<br
-            />白い薬剤になり歯に塗布しやすくなります
+            {
+                t({
+                    ja: "歯科用薬剤に混ぜて使用可能",
+                    en: "The powder can be blended with ",
+                })
+            }
+            <br />
+            {
+                t({
+                    ja: "",
+                    en: "dental medications to enhance its usability",
+                })
+            }
+            <br />
+            {
+                t({
+                    ja: "白い薬剤になり歯に塗布しやすくなります",
+                    en: "When mixed, it transforms into a white paste,",
+                })
+            }
+            <br />
+            {
+                t({
+                    ja: "",
+                    en: "making it easier to apply evenly on the teeth.",
+                })
+            }
         </p>
         <div class="list">
             <div class="item">
-                毎日の歯磨きに<br />プラスするだけで<br />OK!
+                {
+                    t({
+                        ja: "毎日の歯磨きに",
+                        en: "Add It to Your",
+                    })
+                }
+                <br />
+                {
+                    t({
+                        ja: "プラスするだけで",
+                        en: "Daily Brushing Routine",
+                    })
+                }<br />
+                {
+                    t({
+                        ja: "OK!",
+                        en: "– That’s It!",
+                    })
+                }
             </div>
             <div class="item">
-                使い方は簡単、<br />いつもの歯磨きに<br />混ぜるだけ!
+                {
+                    t({
+                        ja: "使い方は簡単、",
+                        en: "Just Mix It with",
+                    })
+                }
+                <br />
+                {
+                    t({
+                        ja: "いつもの歯磨きに",
+                        en: "Your Regular",
+                    })
+                }<br />
+                {
+                    t({
+                        ja: "混ぜるだけ!",
+                        en: "Toothpaste!",
+                    })
+                }
             </div>
         </div>
     </div>
@@ -48,7 +131,7 @@
                 z-index: 9;
             }
             p {
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: bold;
                 margin-bottom: 40px;
             }
@@ -63,7 +146,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 22px;
+                    font-size: 20px;
                     font-weight: bold;
                     text-align: center;
                 }

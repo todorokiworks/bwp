@@ -1,16 +1,43 @@
+---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+---
+
 <section id="bnr">
     <div class="cInner">
         <div class="bnr__txt">
             <p class="txt-name">Beauty White Powder</p>
-            <p class="txt-info">価格 ¥18,000（税込）</p>
+            <p class="txt-info">
+                {
+                    t({
+                        ja: "価格 ¥18,000（税込）",
+                        en: "Price ¥18,000（tax included）",
+                    })
+                }
+            </p>
             <a
                 href="https://cocoashiya18.thebase.in/p/00002"
                 target="_blank"
-                class="btn">ご購入</a
+                class="btn"
             >
+                {
+                    t({
+                        ja: "ご購入",
+                        en: "Purchase",
+                    })
+                }
+            </a>
         </div>
         <div class="bnr__image">
-            <img src="img/img_product.png" alt="" />
+            <img src="/img/img_product.png" alt="" />
         </div>
     </div>
 </section>

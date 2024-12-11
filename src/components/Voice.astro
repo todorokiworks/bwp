@@ -1,70 +1,106 @@
+---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+---
+
 <section id="voice">
     <div class="cInner">
-        <h2>お客様の声</h2>
-        <div class="list">
-            <div class="item">
-                <div class="icon">
-                    <img src="/img/img_voice_woman.png" alt="" />
-                </div>
-                <div class="txt">このパウダーで本当に白くなりました!</div>
-            </div>
-            <div class="item">
-                <div class="txt">使い始めてから自分に自信がつきました!!</div>
-                <div class="icon">
-                    <img src="/img/img_voice_man.png" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style lang="scss">
-    section#voice {
-        background: url("/img/img_voice_bg.png") center center / cover;
-        div.cInner {
-            padding: 80px 0;
-            position: relative;
-            h2 {
-                font-size: 60px;
-                font-weight: bold;
-                line-height: 1.25;
-                margin-bottom: 40px;
-                position: relative;
-                z-index: 9;
-                text-align: center;
+        <h2>
+            {
+                t({
+                    ja: "お客様の声",
+                    en: "Testimonials",
+                })
             }
-            div.list {
-                width: 800px;
-                margin: 0 auto;
-                div.item {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    div.icon {
-                        width: 180px;
-                        img {
+            <div class="list">
+                <div class="item">
+                    <div class="icon">
+                        <img src="/img/img_voice_woman.png" alt="" />
+                    </div>
+                    <div class="txt">
+                        {
+                            t({
+                                ja: "このパウダーで本当に白くなりました!",
+                                en: "This powder really made my teeth whiter!",
+                            })
                         }
-                    }
-                    div.txt {
-                        background: url("/img/img_voice_frame.png") center
-                            center / contain no-repeat;
-                        width: 800px;
-                        height: 220px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 24px;
-                        font-weight: bold;
-                    }
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="txt">
+                        {
+                            t({
+                                ja: "使い始めてから自分に自信がつきました!",
+                                en: "Since I started using it, I’ve gained confidence in myself!",
+                            })
+                        }
+                    </div>
+                    <div class="icon">
+                        <img src="/img/img_voice_man.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </h2>
+    </div>
 
-                    &:nth-child(1) {
-                        .txt {
-                            background: url("/img/img_voice_frame02.png") center
+    <style lang="scss">
+        section#voice {
+            background: url("/img/img_voice_bg.png") center center / cover;
+            div.cInner {
+                padding: 80px 0;
+                position: relative;
+                h2 {
+                    font-size: 60px;
+                    font-weight: bold;
+                    line-height: 1.25;
+                    margin-bottom: 40px;
+                    position: relative;
+                    z-index: 9;
+                    text-align: center;
+                }
+                div.list {
+                    width: 800px;
+                    margin: 0 auto;
+                    div.item {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        div.icon {
+                            width: 180px;
+                            img {
+                            }
+                        }
+                        div.txt {
+                            background: url("/img/img_voice_frame.png") center
                                 center / contain no-repeat;
+                            width: 800px;
+                            height: 220px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                            font-weight: bold;
+                            text-align: left;
+                            padding: 0 20px;
+                        }
+
+                        &:nth-child(1) {
+                            .txt {
+                                background: url("/img/img_voice_frame02.png")
+                                    center center / contain no-repeat;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-</style>
+    </style>
+</section>

@@ -1,11 +1,8 @@
 ---
 import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
-import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "@/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const t = useTranslations(Astro.currentLocale as Lang);
-
-import AstroImage from "@/assets/astro-logo.svg";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -43,13 +40,56 @@ const nav = [
         >
         <nav>
             <ul>
-                {
-                    nav.map((el) => (
-                        <li>
-                            <a href={el.link}>{el.name}</a>
-                        </li>
-                    ))
-                }
+                <li>
+                    <a href="#feature">
+                        {
+                            t({
+                                ja: "特徴",
+                                en: "Feature",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#ingredients">
+                        {
+                            t({
+                                ja: "成分",
+                                en: "Ingredient",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#domestic">
+                        {
+                            t({
+                                ja: "こだわり",
+                                en: "Made in Japan",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#use">
+                        {
+                            t({
+                                ja: "使用方法",
+                                en: "How to use",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#voice">
+                        {
+                            t({
+                                ja: "お客様の声",
+                                en: "Testimonials",
+                            })
+                        }
+                    </a>
+                </li>
             </ul>
         </nav>
 

@@ -1,4 +1,15 @@
 ---
+import { useTranslations, type Lang } from "@/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+
 const lists = [
     {
         url: "/img/img_domestic01.png",
@@ -15,19 +26,65 @@ const lists = [
 
 <section id="domestic">
     <div class="cInner">
-        <h2><span>日本国内製造</span>へのこだわり</h2>
-        <div class="list">
+        <h2>
+            <span>
+                {
+                    t({
+                        ja: "日本国内製造",
+                        en: "",
+                    })
+                }
+            </span>
             {
-                lists.map((item) => (
-                    <div class="item">
-                        <div>
-                            <img src={item.url} alt="" />
-                        </div>
-                        <p set:text={item.ttl} class="ttl" />
-                        <p set:html={item.txt} class="txt" />
-                    </div>
-                ))
+                t({
+                    ja: "へのこだわり",
+                    en: "Commitment to Manufacturing in Japan",
+                })
             }
+        </h2>
+        <div class="list">
+            <div class="item">
+                <div>
+                    <img src="/img/img_domestic01.png" alt="" />
+                </div>
+                <p class="ttl">
+                    {
+                        t({
+                            ja: "信頼の品質",
+                            en: "Trusted Quality",
+                        })
+                    }
+                </p>
+                <p class="txt">
+                    {
+                        t({
+                            ja: "原料から製造まで日本国内で徹底管理。安全で高品質な製品をお届けします。",
+                            en: "From raw materials to production, everything is meticulously managed within Japan, ensuring safe and high-quality products.",
+                        })
+                    }
+                </p>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="/img/img_domestic02.png" alt="" />
+                </div>
+                <p class="ttl">
+                    {
+                        t({
+                            ja: "日本製の安心感",
+                            en: "Made in Japan",
+                        })
+                    }
+                </p>
+                <p class="txt">
+                    {
+                        t({
+                            ja: "成分・容器・製造まで国産で、日本の技術力と信頼性に支えられた製品。",
+                            en: "All ingredients, packaging, and manufacturing processes are domestically sourced, supported by Japan’s advanced technology and reliability.",
+                        })
+                    }
+                </p>
+            </div>
         </div>
     </div>
 </section>

@@ -1,27 +1,15 @@
 ---
-import LocalesHomeList from "@/components/i18n/LocalesHomeList.astro";
-const nav = [
-    {
-        name: "特徴",
-        link: "#feature",
-    },
-    {
-        name: "成分",
-        link: "#ingredients",
-    },
-    {
-        name: "こだわり",
-        link: "#domestic",
-    },
-    {
-        name: "使用方法",
-        link: "#use",
-    },
-    {
-        name: "お客様の声",
-        link: "#voice",
-    },
-];
+import { useTranslations, type Lang } from "@/i18n";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+import AstroImage from "@/assets/astro-logo.svg";
+
+const locale = Astro.currentLocale as Lang;
+
+const isActive = (path: string) =>
+    getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
 ---
 
 <footer id="footer">
@@ -29,18 +17,60 @@ const nav = [
         <p>BEAUTY WHITE POWDER</p>
         <nav>
             <ul>
-                {
-                    nav.map((el) => (
-                        <li>
-                            <a href={el.link}>{el.name}</a>
-                        </li>
-                    ))
-                }
+                <ul>
+                    <li>
+                        <a href="#">
+                            {
+                                t({
+                                    ja: "特徴",
+                                    en: "Feature",
+                                })
+                            }
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {
+                                t({
+                                    ja: "成分",
+                                    en: "Ingredient",
+                                })
+                            }
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {
+                                t({
+                                    ja: "こだわり",
+                                    en: "Made in Japan",
+                                })
+                            }
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {
+                                t({
+                                    ja: "使用方法",
+                                    en: "How to use",
+                                })
+                            }
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {
+                                t({
+                                    ja: "お客様の声",
+                                    en: "Testimonials",
+                                })
+                            }
+                        </a>
+                    </li>
+                </ul>
             </ul>
         </nav>
-        <ul>
-            <LocalesHomeList />
-        </ul>
 
         <p class="copyright">
             coryright Beauty White Powder All Rights Reserved.

@@ -1,4 +1,7 @@
 /* basic page style */
+html {
+  scroll-behavior: smooth;
+}
 
 :lang(ar) {
   * {
@@ -55,10 +58,6 @@ button,
 input,
 label {
   line-height: 1.4;
-}
-
-p {
-  margin-block-start: 0.8em;
 }
 
 p a {
