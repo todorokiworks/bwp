@@ -42,6 +42,33 @@ const isActive = (path: string) =>
     </div>
 </section>
 
+<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script is:inline>
+    $(function () {
+        $(".menu li a").click(function () {
+            $(".menu-btn")
+                .removeAttr("checked")
+                .prop("checked", false)
+                .change();
+        });
+    });
+
+    $(function () {
+        // スクロールを開始したら
+        $(window).on("scroll", function () {
+            // ファーストビューの高さを取得
+            mvHeight = $("#mv").height();
+            if ($(window).scrollTop() > mvHeight) {
+                // スクロールの位置がファーストビューより下の場合にclassを付与
+                $("#header").addClass("bg");
+            } else {
+                // スクロールの位置がファーストビューより上の場合にclassを外す
+                $("#header").removeClass("bg");
+            }
+        });
+    });
+</script>
+
 <style lang="scss">
     section#bnr {
         background: url("/img/img_bnr_bg.png") center center / cover no-repeat;

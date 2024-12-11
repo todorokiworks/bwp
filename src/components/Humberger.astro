@@ -92,18 +92,6 @@ const isActive = (path: string) =>
     </li>
 </ul>
 
-<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script is:inline>
-    $(function () {
-        $(".menu li a").click(function () {
-            $(".menu-btn")
-                .removeAttr("checked")
-                .prop("checked", false)
-                .change();
-        });
-    });
-</script>
-
 <style lang="scss">
     /* Nav items */
     .menu {
