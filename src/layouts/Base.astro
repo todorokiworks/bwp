@@ -29,12 +29,6 @@ const localeDescription = description || t(SITE_DESCRIPTION);
 import "@fontsource-variable/noto-sans-jp";
 ---
 
-<!--
-
-  Source Code:
-  https://github.com/psephopaiktes/astro-i18n-starter
-
--->
 <html lang={LOCALES[locale].lang || locale} dir={LOCALES[locale].dir || null}>
   <head>
     <meta charset="UTF-8" />
@@ -140,4 +134,26 @@ import "@fontsource-variable/noto-sans-jp";
 			display: block;
 		}
 	}
+
+    div.effect {
+
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -42px;
+                    right: 20px;
+                    width: 120px;
+                    height: 240px;
+                    z-index: 1;
+                    background: url("/img/img_ingridients_man.png") center
+                        center / contain no-repeat;
+                         @media (max-width: 767px) {
+                             width: 60px;
+                    height: 120px;
+bottom: -22px;
+                right: 10px;
+                         }
+                }
+            }
 </style>
