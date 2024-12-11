@@ -135,7 +135,32 @@ import "@fontsource-variable/noto-sans-jp";
 		}
 	}
 
-    div.effect {
+   section#feature {
+     div.cInner {
+      &::before {
+                    content: "";
+                    position: absolute;
+                    top: 80px;
+                    right: -80px;
+                    width: 700px;
+                    height: 600px;
+                    z-index: 1;
+                    background: url("/img/img_feature_bg-item.png") center
+                        center / cover no-repeat;
+                         @media (max-width: 767px) {
+                          top: -40px;
+                right: -23px;
+                width: 250px;
+                height: 400px;
+                    z-index: 1;
+                    background: url("/img/img_feature_bg-item-sp.png") center
+                        center / contain no-repeat;
+                     }
+                }
+     }
+   }
+section#ingredients {
+  div.effect {
 
  position: relative;
  &::after {
@@ -156,6 +181,8 @@ bottom: -22px;
                          }
                 }
             }
+}
+    
 
              section#use {
               div.cInner {
