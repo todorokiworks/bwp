@@ -94,15 +94,23 @@ const nav = [
             </ul>
         </nav>
 
+        <a
+            href="https://cocoashiya18.thebase.in/p/00002"
+            target="_blank"
+            class="btn"
+        >
+            {
+                t({
+                    ja: "ご購入",
+                    en: "Purchase",
+                })
+            }</a
+        >
+
+        <Humberger />
         <div class="langSelectBox">
             <LocaleSelect />
         </div>
-        <!--<a
-            href="https://cocoashiya18.thebase.in/p/00002"
-            target="_blank"
-            class="btn">ご購入</a
-        > -->
-        <Humberger />
     </div>
 </header>
 <style lang="scss">
@@ -169,6 +177,10 @@ const nav = [
 
             .langSelectBox {
                 z-index: 999;
+                position: fixed;
+                bottom: 11px;
+                left: 10%;
+                transform: translateX(-50%);
                 @media (max-width: 767px) {
                     position: fixed;
                     bottom: 11px;
