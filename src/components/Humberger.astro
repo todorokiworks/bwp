@@ -10,6 +10,78 @@ const isActive = (path: string) =>
     getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
 ---
 
+<div class="navtext-container">
+    <div class="navtext"></div>
+</div>
+<input type="checkbox" class="menu-btn" id="menu-btn" />
+<label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
+<ul class="menu">
+    <li>
+        <a href="#feature">
+            {
+                t({
+                    ja: "特徴",
+                    en: "Feature",
+                })
+            }
+        </a>
+    </li>
+    <li>
+        <a href="#ingredients">
+            {
+                t({
+                    ja: "成分",
+                    en: "Ingredient",
+                })
+            }
+        </a>
+    </li>
+    <li>
+        <a href="#domestic">
+            {
+                t({
+                    ja: "こだわり",
+                    en: "Made in Japan",
+                })
+            }
+        </a>
+    </li>
+    <li>
+        <a href="#use">
+            {
+                t({
+                    ja: "使用方法",
+                    en: "How to use",
+                })
+            }
+        </a>
+    </li>
+    <li>
+        <a href="#voice">
+            {
+                t({
+                    ja: "お客様の声",
+                    en: "Testimonials",
+                })
+            }
+        </a>
+    </li>
+    <li>
+        <a
+            href="https://cocoashiya18.thebase.in/p/00002"
+            target="_blank"
+            class="btn"
+        >
+            {
+                t({
+                    ja: "ご購入",
+                    en: "Purchase",
+                })
+            }</a
+        >
+    </li>
+</ul>
+
 <style lang="scss">
     /* Nav items */
     .menu {
@@ -46,6 +118,10 @@ const isActive = (path: string) =>
         transition: 0.5s;
     }
 
+    .menu .btn {
+        color: #fff;
+    }
+
     .menu li {
         border-top: 1px solid rgb(75, 75, 75);
         padding: 15px 0;
@@ -73,6 +149,10 @@ const isActive = (path: string) =>
         padding: 24px 14px;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         z-index: 999;
+        display: none;
+        @media (max-width: 767px) {
+            display: block;
+        }
     }
 
     .navicon {

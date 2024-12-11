@@ -5,6 +5,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 const t = useTranslations(Astro.currentLocale as Lang);
 
 import AstroImage from "@/assets/astro-logo.svg";
+import LocaleSelect from "./i18n/LocaleSelect.astro";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -76,6 +77,8 @@ const isActive = (path: string) =>
     </div>
 </footer>
 
+<a class="btnTop" href="#mv">TOP</a>
+
 <style lang="scss">
     footer#footer {
         background: #e0ecff;
@@ -109,6 +112,10 @@ const isActive = (path: string) =>
                         a {
                             font-size: 18px;
                             font-weight: bold;
+                            transition: all 0.3s;
+                            &:hover {
+                                color: #0c67b9;
+                            }
                             @media (max-width: 767px) {
                                 font-size: 14px;
                             }
@@ -121,5 +128,23 @@ const isActive = (path: string) =>
                 font-size: 12px;
             }
         }
+    }
+
+    .btnTop {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background: var(--darkBlue);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 5px;
+        width: 65px;
+        height: 65px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
     }
 </style>

@@ -92,12 +92,9 @@ const nav = [
                     </a>
                 </li>
             </ul>
-            <div class="sp">
-                <LocaleSelect />
-            </div>
         </nav>
 
-        <div class="pc">
+        <div class="langSelectBox">
             <LocaleSelect />
         </div>
         <!--<a
@@ -107,64 +104,78 @@ const nav = [
         > -->
         <Humberger />
     </div>
-
-    <style lang="scss">
-        header#header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            div.cInner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 0;
-                max-width: 1300px;
+</header>
+<style lang="scss">
+    header#header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        div.cInner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            max-width: 1300px;
+            @media (max-width: 767px) {
+                max-width: 100%;
+                padding: 20px 0px;
+            }
+            a.logo {
+                width: 80px;
+                z-index: 9999;
                 @media (max-width: 767px) {
-                    max-width: 100%;
-                    padding: 20px 0px;
+                    width: 40px;
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
                 }
-                a.logo {
-                    width: 80px;
-                    z-index: 9999;
-                    @media (max-width: 767px) {
-                        width: 40px;
-                        position: absolute;
-                        top: 20px;
-                        left: 20px;
-                    }
-                    img {
-                    }
+                img {
                 }
-                nav {
-                    transform: translateX(50px);
+            }
+            nav {
+                transform: translateX(50px);
+                z-index: 999;
+                @media (max-width: 767px) {
+                    background: #aabbcc;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    display: none;
+                }
+                ul {
+                    display: flex;
+                    gap: 30px;
                     @media (max-width: 767px) {
-                        background: #aabbcc;
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        width: 100%;
-                        display: none;
+                        flex-direction: column;
                     }
-                    ul {
-                        display: flex;
-                        gap: 30px;
-                        @media (max-width: 767px) {
-                            flex-direction: column;
-                        }
-                        li {
-                            a {
-                                font-size: 18px;
-                                font-weight: bold;
+                    li {
+                        a {
+                            font-size: 18px;
+                            font-weight: bold;
+                            transition: all 0.3s;
+                            &:hover {
+                                color: #0c67b9;
                             }
                         }
                     }
                 }
-                a.btn {
-                    width: 230px;
+            }
+            a.btn {
+                width: 230px;
+            }
+
+            .langSelectBox {
+                z-index: 999;
+                @media (max-width: 767px) {
+                    position: fixed;
+                    bottom: 11px;
+                    left: 25%;
+                    transform: translateX(-50%);
                 }
             }
         }
-    </style>
-</header>
+    }
+</style>
