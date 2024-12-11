@@ -137,23 +137,48 @@ import "@fontsource-variable/noto-sans-jp";
 
     div.effect {
 
-                position: relative;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    bottom: -42px;
-                    right: 20px;
-                    width: 120px;
-                    height: 240px;
-                    z-index: 1;
-                    background: url("/img/img_ingridients_man.png") center
-                        center / contain no-repeat;
-                         @media (max-width: 767px) {
-                             width: 60px;
-                    height: 120px;
+ position: relative;
+ &::after {
+     content: "";
+     position: absolute;
+     bottom: -42px;
+     right: 20px;
+     width: 120px;
+     height: 240px;
+     z-index: 1;
+     background: url("/img/img_ingridients_man.png") center
+         center / contain no-repeat;
+          @media (max-width: 767px) {
+              width: 60px;
+     height: 120px;
 bottom: -22px;
                 right: 10px;
                          }
                 }
             }
+
+             section#use {
+              div.cInner {
+                  position: relative;
+                   &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                transform: translateY(-50%);
+                width: 600px;
+                height: 435px;
+                z-index: 1;
+                background: url("/img/img_use_woman.png") center center /
+                    contain no-repeat;
+                     @media (max-width: 767px) {
+                          width: 300px;
+                top: 75%;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                     }
+            }
+              }
+             }
 </style>
