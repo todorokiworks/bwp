@@ -135,59 +135,79 @@ import "@fontsource-variable/noto-sans-jp";
 		}
 	}
 
-   section#feature {
-     div.cInner {
-      &::before {
-                    content: "";
-                    position: absolute;
-                    top: 80px;
-                    right: -80px;
-                    width: 700px;
-                    height: 600px;
-                    z-index: 1;
-                    background: url("/img/img_feature_bg-item.png") center
-                        center / cover no-repeat;
-                         @media (max-width: 767px) {
-                          top: -40px;
-                right: -23px;
-                width: 250px;
-                height: 400px;
+     section#feature {
+        div.cInner {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 80px;
+                right: -80px;
+                width: 700px;
+                height: 600px;
+                z-index: 1;
+                background: url("/img/img_feature_bg-item.png") center center /
+                    cover no-repeat;
+                @media (max-width: 767px) {
+                    top: -40px;
+                    right: -23px;
+                    width: 250px;
+                    height: 400px;
                     z-index: 1;
                     background: url("/img/img_feature_bg-item-sp.png") center
                         center / contain no-repeat;
-                     }
-                }
-     }
-   }
-section#ingredients {
-  div.effect {
-
- position: relative;
- &::after {
-     content: "";
-     position: absolute;
-     bottom: -42px;
-     right: 20px;
-     width: 120px;
-     height: 240px;
-     z-index: 1;
-     background: url("/img/img_ingridients_man.png") center
-         center / contain no-repeat;
-          @media (max-width: 767px) {
-              width: 60px;
-     height: 120px;
-bottom: -22px;
-                right: 10px;
-                         }
                 }
             }
-}
-    
 
-             section#use {
-              div.cInner {
-                  position: relative;
-                   &::before {
+            div.recommend {
+              div.recommend__inner {
+                position: relative;
+                 &::before {
+                            content: "";
+                            position: absolute;
+                            bottom: -67px;
+                            right: 20px;
+                            width: 120px;
+                            height: 140px;
+                            z-index: 1;
+                            background: url("/img/img_feature_woman.png") center
+                                center / contain no-repeat;
+                                 @media (max-width: 767px) {
+                                      width: 120px;
+                            height: 100px;
+                             right: 0px;
+                                 }
+                        }
+              }
+            }
+        }
+    }
+    section#ingredients {
+        div.effect {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -42px;
+                right: 20px;
+                width: 120px;
+                height: 240px;
+                z-index: 1;
+                background: url("/img/img_ingridients_man.png") center center /
+                    contain no-repeat;
+                @media (max-width: 767px) {
+                    width: 60px;
+                    height: 120px;
+                    bottom: -22px;
+                    right: 10px;
+                }
+            }
+        }
+    }
+
+    section#use {
+        div.cInner {
+            position: relative;
+            &::before {
                 content: "";
                 position: absolute;
                 top: 50%;
@@ -198,14 +218,14 @@ bottom: -22px;
                 z-index: 1;
                 background: url("/img/img_use_woman.png") center center /
                     contain no-repeat;
-                     @media (max-width: 767px) {
-                          width: 300px;
-                top: 75%;
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                     }
+                @media (max-width: 767px) {
+                    width: 300px;
+                    top: 75%;
+                    right: auto;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
             }
-              }
-             }
+        }
+    }
 </style>
