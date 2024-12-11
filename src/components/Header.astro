@@ -115,12 +115,23 @@ const nav = [
             align-items: center;
             padding: 20px 0;
             max-width: 1300px;
+            @media (max-width: 767px) {
+                max-width: 100%;
+                padding: 20px 20px;
+            }
             a.logo {
+                width: 80px;
+                @media (max-width: 767px) {
+                    width: 40px;
+                }
                 img {
                 }
             }
             nav {
                 transform: translateX(50px);
+                @media (max-width: 767px) {
+                    display: none;
+                }
                 ul {
                     display: flex;
                     gap: 30px;

@@ -304,9 +304,15 @@ const isActive = (path: string) =>
           <style lang="scss">
         section#feature {
             background: url("/img/img_feature_bg.png") center center / cover;
+            @media (max-width: 767px) {
+                overflow: hidden;
+            }
             div.cInner {
                 padding: 60px 0;
                 position: relative;
+                 @media (max-width: 767px) {
+                     padding: 60px 20px;
+                     }
                 &::before {
                     content: "";
                     position: absolute;
@@ -317,6 +323,15 @@ const isActive = (path: string) =>
                     z-index: 1;
                     background: url("/img/img_feature_bg-item.png") center
                         center / cover no-repeat;
+                         @media (max-width: 767px) {
+                                  top: -125px;
+                right: -23px;
+                width: 250px;
+                    height: 600px;
+                    z-index: 1;
+                    background: url("/img/img_feature_bg-item-sp.png") center
+                        center / contain no-repeat;
+                     }
                 }
                 h2 {
                     font-size: 60px;
@@ -325,9 +340,16 @@ const isActive = (path: string) =>
                     margin-bottom: 40px;
                     position: relative;
                     z-index: 9;
+                     @media (max-width: 767px) {
+                          font-size: 30px;
+                    margin-bottom: 20px;
+                     }
                     span {
                         display: block;
                         font-size: 36px;
+                         @media (max-width: 767px) {
+                             font-size: 18px;
+                         }
                     }
                 }
                 div.list {
@@ -338,6 +360,12 @@ const isActive = (path: string) =>
                     z-index: 9;
                     margin-bottom: 100px;
                     position: relative;
+
+                     @media (max-width: 767px) {
+                    flex-direction: column;
+                    width: 100%;
+                     margin-bottom: 0px;
+                     }
 
                     div.item {
                         width: 48%;
@@ -350,6 +378,10 @@ const isActive = (path: string) =>
                         position: relative;
                         z-index: 9;
                         margin-bottom: 20px;
+                         @media (max-width: 767px) {
+                            width: 50%;
+                             min-height: 170px;
+                         }
                         &::before {
                             content: "";
                             position: absolute;
@@ -358,6 +390,11 @@ const isActive = (path: string) =>
                             width: 300px;
                             height: 300px;
                             z-index: -1;
+                             @media (max-width: 767px) {
+                                  width: 200px;
+                            height: 200px;
+                            left: -20px;
+                             }
                         }
                         &:nth-child(1) {
                             &::before {
@@ -366,18 +403,27 @@ const isActive = (path: string) =>
                             }
                         }
                         &:nth-child(2) {
+                             @media (max-width: 767px) {
+                                margin-left: auto;
+                             }
                             &::before {
                                 background: url("/img/img_feature_blob02.png")
                                     center center / contain no-repeat;
                             }
                         }
                         &:nth-child(3) {
+                             @media (max-width: 767px) {
+                            transform: translateY(-58px);}
                             &::before {
                                 background: url("/img/img_feature_blob03.png")
                                     center center / contain no-repeat;
                             }
                         }
                         &:nth-child(4) {
+                              @media (max-width: 767px) {
+                                margin-left: auto;
+                                 transform: translateY(-125px);
+                             }
                             &::before {
                                 background: url("/img/img_feature_blob04.png")
                                     center center / contain no-repeat;
@@ -387,8 +433,14 @@ const isActive = (path: string) =>
                             font-size: 24px;
                             font-weight: bold;
                             margin-bottom: 20px;
+                             @media (max-width: 767px) {
+                                font-size: 18px;
+                             }
                         }
                         div.item-txt {
+                              @media (max-width: 767px) {
+                                font-size: 14px;
+                             }
                         }
                     }
                 }
@@ -411,6 +463,9 @@ const isActive = (path: string) =>
                         font-size: 36px;
                         font-weight: bold;
                         margin-bottom: 20px;
+                         @media (max-width: 767px) {
+                            font-size: 20px;
+                         }
                     }
                     div.recommend__inner {
                         width: 800px;
@@ -420,6 +475,10 @@ const isActive = (path: string) =>
                         border-radius: 25px;
                         border: 6px solid var(--darkBlue);
                         position: relative;
+                          @media (max-width: 767px) {
+                   width: 100%;
+                   padding: 20px 30px;
+                }
                         &::before {
                             content: "";
                             position: absolute;
@@ -430,12 +489,20 @@ const isActive = (path: string) =>
                             z-index: 1;
                             background: url("/img/img_feature_woman.png") center
                                 center / contain no-repeat;
+                                 @media (max-width: 767px) {
+                                      width: 120px;
+                            height: 140px;
+                             right: 10px;
+                                 }
                         }
                         ul {
                             li {
                                 font-size: 22px;
                                 font-weight: bold;
                                 margin-bottom: 20px;
+                                 @media (max-width: 767px) {
+                            font-size: 16px;
+                         }
                             }
                         }
                     }

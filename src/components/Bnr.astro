@@ -50,6 +50,11 @@ const isActive = (path: string) =>
             align-items: center;
             gap: 30px;
             padding: 40px 0;
+
+            @media (max-width: 767px) {
+                flex-direction: column;
+                padding: 40px 10px;
+            }
             div.bnr__txt {
                 width: 50%;
                 display: flex;
@@ -57,23 +62,44 @@ const isActive = (path: string) =>
                 align-items: center;
                 flex-direction: column;
                 gap: 20px;
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
                 p.txt-name {
                     font-size: 50px;
                     font-weight: bold;
+                    @media (max-width: 767px) {
+                        font-size: 30px;
+                    }
                 }
                 p.txt-info {
                     font-size: 28px;
                     font-weight: bold;
+                    @media (max-width: 767px) {
+                        font-size: 20px;
+                    }
                 }
                 a.btn {
                     width: 380px;
                     padding: 20px 0;
+                    @media (max-width: 767px) {
+                        width: 300px;
+                        padding: 14px 0;
+                    }
                 }
             }
             div.bnr__image {
                 width: 50%;
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
                 img {
                     max-width: 460px;
+                    display: block;
+                    @media (max-width: 767px) {
+                        max-width: 230px;
+                        margin: 0 auto;
+                    }
                 }
             }
         }

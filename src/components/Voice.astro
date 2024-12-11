@@ -20,87 +20,115 @@ const isActive = (path: string) =>
                     en: "Testimonials",
                 })
             }
-            <div class="list">
-                <div class="item">
-                    <div class="icon">
-                        <img src="/img/img_voice_woman.png" alt="" />
-                    </div>
-                    <div class="txt">
-                        {
-                            t({
-                                ja: "このパウダーで本当に白くなりました!",
-                                en: "This powder really made my teeth whiter!",
-                            })
-                        }
-                    </div>
+        </h2>
+        <div class="list">
+            <div class="item">
+                <div class="icon">
+                    <img src="/img/img_voice_woman.png" alt="" />
                 </div>
-                <div class="item">
-                    <div class="txt">
-                        {
-                            t({
-                                ja: "使い始めてから自分に自信がつきました!",
-                                en: "Since I started using it, I’ve gained confidence in myself!",
-                            })
-                        }
-                    </div>
-                    <div class="icon">
-                        <img src="/img/img_voice_man.png" alt="" />
-                    </div>
+                <div class="txt">
+                    {
+                        t({
+                            ja: "このパウダーで本当に白くなりました!",
+                            en: "This powder really made my teeth whiter!",
+                        })
+                    }
                 </div>
             </div>
-        </h2>
+            <div class="item">
+                <div class="txt">
+                    {
+                        t({
+                            ja: "使い始めてから自分に自信がつきました!",
+                            en: "Since I started using it, I’ve gained confidence in myself!",
+                        })
+                    }
+                </div>
+                <div class="icon">
+                    <img src="/img/img_voice_man.png" alt="" />
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <style lang="scss">
-        section#voice {
-            background: url("/img/img_voice_bg.png") center center / cover;
-            div.cInner {
-                padding: 80px 0;
+<style lang="scss">
+    section#voice {
+        background: url("/img/img_voice_bg.png") center center / cover;
+        div.cInner {
+            padding: 80px 0;
+            position: relative;
+            @media (max-width: 767px) {
+                padding: 80px 20px;
+            }
+            h2 {
+                font-size: 60px;
+                font-weight: bold;
+                line-height: 1.25;
+                margin-bottom: 40px;
                 position: relative;
-                h2 {
-                    font-size: 60px;
-                    font-weight: bold;
-                    line-height: 1.25;
-                    margin-bottom: 40px;
-                    position: relative;
-                    z-index: 9;
+                z-index: 9;
+                text-align: center;
+                @media (max-width: 767px) {
+                    font-size: 36px;
                     text-align: center;
                 }
-                div.list {
-                    width: 800px;
-                    margin: 0 auto;
-                    div.item {
+            }
+            div.list {
+                width: 800px;
+                margin: 0 auto;
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
+                div.item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    div.icon {
+                        width: 180px;
+                        @media (max-width: 767px) {
+                            width: 80px;
+                        }
+                        img {
+                        }
+                    }
+                    div.txt {
+                        background: url("/img/img_voice_frame.png") center
+                            center / contain no-repeat;
+                        width: 800px;
+                        height: 220px;
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: center;
                         align-items: center;
-                        div.icon {
-                            width: 180px;
-                            img {
-                            }
+                        font-size: 24px;
+                        font-weight: bold;
+                        text-align: left;
+                        padding: 0 20px;
+                        @media (max-width: 767px) {
+                            font-size: 16px;
+                            background: url("/img/img_voice_frame-sp.png")
+                                center center / contain no-repeat;
+                            width: 245px;
+                            height: 150px;
+                            padding: 0 60px 0 20px;
                         }
-                        div.txt {
-                            background: url("/img/img_voice_frame.png") center
-                                center / contain no-repeat;
-                            width: 800px;
-                            height: 220px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 24px;
-                            font-weight: bold;
-                            text-align: left;
-                            padding: 0 20px;
-                        }
+                    }
 
-                        &:nth-child(1) {
-                            .txt {
-                                background: url("/img/img_voice_frame02.png")
+                    &:nth-child(1) {
+                        .txt {
+                            background: url("/img/img_voice_frame02.png") center
+                                center / contain no-repeat;
+                            @media (max-width: 767px) {
+                                background: url("/img/img_voice_frame02-sp.png")
                                     center center / contain no-repeat;
+                                width: 245px;
+                                height: 150px;
+                                padding: 0 20px 0 60px;
                             }
                         }
                     }
                 }
             }
         }
-    </style>
-</section>
+    }
+</style>

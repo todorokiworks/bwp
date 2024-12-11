@@ -17,63 +17,61 @@ const isActive = (path: string) =>
         <p>BEAUTY WHITE POWDER</p>
         <nav>
             <ul>
-                <ul>
-                    <li>
-                        <a href="#">
-                            {
-                                t({
-                                    ja: "特徴",
-                                    en: "Feature",
-                                })
-                            }
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            {
-                                t({
-                                    ja: "成分",
-                                    en: "Ingredient",
-                                })
-                            }
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            {
-                                t({
-                                    ja: "こだわり",
-                                    en: "Made in Japan",
-                                })
-                            }
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            {
-                                t({
-                                    ja: "使用方法",
-                                    en: "How to use",
-                                })
-                            }
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            {
-                                t({
-                                    ja: "お客様の声",
-                                    en: "Testimonials",
-                                })
-                            }
-                        </a>
-                    </li>
-                </ul>
+                <li>
+                    <a href="#feature">
+                        {
+                            t({
+                                ja: "特徴",
+                                en: "Feature",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#ingredients">
+                        {
+                            t({
+                                ja: "成分",
+                                en: "Ingredient",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#domestic">
+                        {
+                            t({
+                                ja: "こだわり",
+                                en: "Made in Japan",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#use">
+                        {
+                            t({
+                                ja: "使用方法",
+                                en: "How to use",
+                            })
+                        }
+                    </a>
+                </li>
+                <li>
+                    <a href="#voice">
+                        {
+                            t({
+                                ja: "お客様の声",
+                                en: "Testimonials",
+                            })
+                        }
+                    </a>
+                </li>
             </ul>
         </nav>
 
         <p class="copyright">
-            coryright Beauty White Powder All Rights Reserved.
+            &copy; Beauty White Powder {new Date().getFullYear()}.
         </p>
     </div>
 </footer>
@@ -83,11 +81,18 @@ const isActive = (path: string) =>
         background: #e0ecff;
         div.cInner {
             padding: 80px 0 1px;
+            @media (max-width: 767px) {
+                padding: 80px 20px 1px;
+            }
             p {
                 font-size: 24px;
                 font-weight: bold;
                 text-align: center;
                 margin-bottom: 80px;
+                @media (max-width: 767px) {
+                    font-size: 18px;
+                    margin-bottom: 60px;
+                }
             }
             nav {
                 margin-bottom: 80px;
@@ -95,10 +100,18 @@ const isActive = (path: string) =>
                     display: flex;
                     justify-content: center;
                     gap: 30px;
+                    @media (max-width: 767px) {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 20px;
+                    }
                     li {
                         a {
                             font-size: 18px;
                             font-weight: bold;
+                            @media (max-width: 767px) {
+                                font-size: 14px;
+                            }
                         }
                     }
                 }

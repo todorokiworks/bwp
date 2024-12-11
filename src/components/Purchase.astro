@@ -20,7 +20,7 @@ const isActive = (path: string) =>
             <h2>
                 {
                     t({
-                        ja: "製品情報と購入情報!",
+                        ja: "製品情報と購入情報",
                         en: "Information",
                     })
                 }
@@ -166,8 +166,14 @@ const isActive = (path: string) =>
     section#purchase {
         div.contents {
             display: flex;
+             @media (max-width: 767px) {
+                flex-direction: column;
+                }
             div.image {
                 width: 50%;
+                  @media (max-width: 767px) {
+                width: 100%;
+                }
                 img {
                 }
             }
@@ -177,6 +183,10 @@ const isActive = (path: string) =>
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                 @media (max-width: 767px) {
+                width: 100%;
+                padding: 40px 20px;
+                }
                 h2 {
                     font-size: 60px;
                     font-weight: bold;
@@ -185,12 +195,18 @@ const isActive = (path: string) =>
                     position: relative;
                     z-index: 9;
                     text-align: center;
+                      @media (max-width: 767px) {
+                        font-size: 36px;
+                    }
                 }
                 p {
                     text-align: center;
                     font-size: 20px;
                     font-weight: bold;
                     margin-bottom: 40px;
+                      @media (max-width: 767px) {
+                        font-size: 16px;
+                    }
                 }
                 ul.info-list {
                     margin-bottom: 40px;
@@ -199,18 +215,30 @@ const isActive = (path: string) =>
                         border-bottom: 2px solid var(--darkBlue);
                         margin-bottom: 10px;
                         padding-bottom: 10px;
+                          @media (max-width: 767px) {
+                        font-size: 14px;
+                    }
                         span {
                             font-size: 20px;
                             font-weight: bold;
                             margin-right: 40px;
                             min-width: 100px;
                             display: inline-block;
+                              @media (max-width: 767px) {
+                        font-size: 14px;
+                         min-width: 70px;
+                          margin-right: 20px;
+                    }
                         }
                     }
                 }
                 a.btn {
                     width: 350px;
                     padding: 20px 0;
+                     @media (max-width: 767px) {
+                     width: 300px;
+                     padding: 15px 0;
+                     }
                 }
             }
         }
