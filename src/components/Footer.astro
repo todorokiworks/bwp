@@ -16,6 +16,68 @@ const isActive = (path: string) =>
 <footer id="footer">
     <div class="cInner">
         <p>BEAUTY WHITE POWDER</p>
+        <ul class="info">
+            <li>
+                <span>
+                    {
+                        t({
+                            ja: "販売元",
+                            en: "Distributor",
+                        })
+                    }
+                </span>
+                {
+                    t({
+                        ja: "COCO ASHIYA",
+                        en: "COCO ASHIYA",
+                    })
+                }
+            </li>
+            <li>
+                <span>
+                    {
+                        t({
+                            ja: "住所",
+                            en: "Address",
+                        })
+                    }
+                </span>
+                {
+                    t({
+                        ja: "兵庫県芦屋市大原町 15-18 芦屋大原ビル３階",
+                        en: "3rd Floor, Ashiya Ohara Building, 15-18 Ohara-cho,",
+                    })
+                }<br />
+                {
+                    t({
+                        ja: "",
+                        en: "Ashiya City, Hyogo Prefecture, Japan",
+                    })
+                }
+            </li>
+            <li>
+                <span>
+                    {
+                        t({
+                            ja: "メールアドレス",
+                            en: "Mail Address",
+                        })
+                    }
+                </span>
+                <a href="mailto:info@cocoashiya.com">info@cocoashiya.com</a>
+            </li>
+            <li>
+                <span>
+                    {
+                        t({
+                            ja: "電話番号",
+                            en: "Phone",
+                        })
+                    }
+                </span>
+                <a href="tel:09050590001">090-5059-0001</a>
+            </li>
+        </ul>
         <nav>
             <ul>
                 <li>
@@ -101,10 +163,24 @@ const isActive = (path: string) =>
                 font-size: 24px;
                 font-weight: bold;
                 text-align: center;
-                margin-bottom: 80px;
+                margin-bottom: 40px;
                 @media (max-width: 767px) {
                     font-size: 18px;
                     margin-bottom: 60px;
+                }
+            }
+
+            .info {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 40px;
+                span {
+                    font-weight: bold;
+                    display: block;
+                    text-align: center;
                 }
             }
             nav {

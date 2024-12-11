@@ -21,6 +21,14 @@ const isActive = (path: string) =>
                 })
             }
         </h2>
+        <div class="contact-txt">
+            {
+                t({
+                    ja: "商品に関するお問い合わせは下記フォームか「info@cocoashiya.com」へお問い合わせください。",
+                    en: "Please contact us using the form below or email us at info@cocoashiya.com.",
+                })
+            }
+        </div>
         <script src="https://www.google.com/recaptcha/api.js" async defer
         ></script><!-- 専用スクリプトの読み込み必要 -->
         <form action="https://ssgform.com/s/bvBpEXlzEMtK" method="post">
@@ -144,6 +152,9 @@ const isActive = (path: string) =>
                         font-size: 30px;
                         margin-bottom: 20px;
                     }
+                }
+                .contact-txt {
+                    text-align: center;
                 }
             }
         }
