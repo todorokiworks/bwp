@@ -31,6 +31,16 @@ import "@fontsource-variable/noto-sans-jp";
 
 <html lang={LOCALES[locale].lang || locale} dir={LOCALES[locale].dir || null}>
   <head>
+    <!-- Google tag (gtag.js) -->
+ <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-W70G71TFWQ"></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-W70G71TFWQ');
+        </script>
     <meta charset="UTF-8" />
     <title>{localeTitle}</title>
     <meta name="description" content={localeDescription} />
@@ -75,6 +85,7 @@ import "@fontsource-variable/noto-sans-jp";
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp&display=swap" media="print" onload={`this.media='all'`} />
 
     <LocaleHtmlHead />
+    <meta name="google-site-verification" content="RKqYaNTBUnof9pwEbpb2MvZOZKbHo_RjVYmexXUErbw" />
   </head>
 
   <body>
