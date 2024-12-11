@@ -50,7 +50,14 @@ const isActive = (path: string) =>
                             })
                         }
                     </p>
-                    <input type="text" class="Form-Item-Input" placeholder="" />
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="お名前"
+                        class="Form-Item-Input"
+                        required
+                    />
                 </div>
                 <div class="Form-Item">
                     <p class="Form-Item-Label">
@@ -69,10 +76,13 @@ const isActive = (path: string) =>
                             })
                         }
                     </p>
+
                     <input
                         type="text"
+                        name="tel"
                         class="Form-Item-Input"
-                        placeholder="例）000-0000-0000"
+                        placeholder="000-0000-0000"
+                        required
                     />
                 </div>
                 <div class="Form-Item">
@@ -93,10 +103,13 @@ const isActive = (path: string) =>
                             })
                         }
                     </p>
+
                     <input
                         type="email"
+                        name="email"
                         class="Form-Item-Input"
-                        placeholder="例）example@gmail.com"
+                        placeholder="example@gmail.com"
+                        required
                     />
                 </div>
 
@@ -118,7 +131,8 @@ const isActive = (path: string) =>
                             })
                         }
                     </p>
-                    <textarea class="Form-Item-Textarea"></textarea>
+                    <textarea name="message" class="Form-Item-Textarea" required
+                    ></textarea>
                 </div>
                 <div
                     class="g-recaptcha"
